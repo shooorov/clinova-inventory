@@ -1,20 +1,33 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/vue-starter-kit",
+    "name": "clinova/inventory",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Clinova Inventory Management System with POS, HRM & Accounting.",
     "keywords": [
         "laravel",
-        "framework"
+        "inventory",
+        "pos",
+        "hrm",
+        "accounting"
     ],
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "bigbharatjain/laravel-clickatell": "^1.0",
+        "doctrine/dbal": "^4.0",
+        "gladcodes/keygen": "^1.1",
         "inertiajs/inertia-laravel": "^3.0",
+        "intervention/image": "^3.0",
+        "intervention/image-laravel": "^1.0",
+        "kwn/number-to-words": "^1.12",
         "laravel/fortify": "^1.34",
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
-        "laravel/wayfinder": "^0.1.14"
+        "laravel/wayfinder": "^0.1.14",
+        "milon/barcode": "^13.0",
+        "spatie/laravel-permission": "^7.0",
+        "stripe/stripe-php": "^14.0",
+        "twilio/sdk": "^7.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.24",
@@ -50,24 +63,6 @@
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\" --names='server,queue,vite'"
         ],
-        "lint": [
-            "pint --parallel"
-        ],
-        "lint:check": [
-            "pint --parallel --test"
-        ],
-        "ci:check": [
-            "Composer\\Config::disableProcessTimeout",
-            "npm run lint:check",
-            "npm run format:check",
-            "npm run types:check",
-            "@test"
-        ],
-        "test": [
-            "@php artisan config:clear --ansi",
-            "@lint:check",
-            "@php artisan test"
-        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -101,5 +96,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
